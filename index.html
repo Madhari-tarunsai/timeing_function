@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Switch</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        height: 100vh;
+        margin: 0; 
+      }
+
+      #id1 {
+        position: relative;
+        width: 50vw;
+        height: 30vh;
+      }
+      #btn {
+        position: absolute;
+        right: 0px;
+        top: 100%;
+        display: none;
+        border: 5px solid skyblue;
+        padding: 4px;
+        background-color: black;
+        color: aliceblue;
+      }
+      #v2 {
+        display: none; /* Initially hide the second video */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="id1">
+      <video src="./video.mp4" controls width="100%" id="v1"></video>
+      <video src="./tarunsai.mp4" controls width="100%" id="v2"></video>
+      <button id="btn">Skip Now</button>
+    </div>
+
+    <script>
+      let btn = document.getElementById("btn");
+      let v1 = document.getElementById("v1");
+      let v2 = document.getElementById("v2");
+
+      // Show the button after 5 seconds
+      setTimeout(() => {
+        btn.style.display = "block";
+      }, 5000);
+
+      // When button is clicked, switch videos
+      btn.addEventListener("click", () => {
+        v1.style.display = "none"; // Hide first video
+        v2.style.display = "block"; // Show second video
+        // v2.play(); // Start playing the second video
+        btn.style.display = "none"; // Hide button after clicking
+      });
+    </script>
+  </body>
+</html>
